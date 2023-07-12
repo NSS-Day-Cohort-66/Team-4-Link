@@ -10,15 +10,11 @@ const materials = [
 // Could we fill out the meals array with known meals and pull them later?
 const meals = [];
 
-// TODO: Need to finish algorithmic thinking for part 1.
+// TODO: explore the below comment as well as nested for loop to create recipes, then move on to part 2?
+
 /* 
-  We need to be able to make different recipes depending on what ingredients
-  we are given. 
-
-  write more "if" statements - conditionally check ingredients vs expected ingredients 
-  and give back a specific recipe
-
-  ...
+  possibility of using switch/case or ternaries for practice instead of if statements
+  3 levels of cook functions: beginnerCook for 2 ingredients, intermediateCook for 3 ingredients, and advancedCook for 4 ingredients
 */
 const cook = (firstIngredient, secondIngredient) => {
   if (
@@ -26,10 +22,28 @@ const cook = (firstIngredient, secondIngredient) => {
     secondIngredient === "Big Hearty Truffle"
   ) {
     meals.push("Mushroom Rice Balls");
+  } else if (
+    firstIngredient === "Hateno Cheese" &&
+    secondIngredient === "Bird Egg"
+  ) {
+    meals.push("Cheesy Omelette");
+  } else if (
+    firstIngredient === "Tabantha Wheat" &&
+    secondIngredient === "Hateno Cheese"
+  ) {
+    meals.push("Cheesy Hylian Pizza");
+  } else if (
+    firstIngredient === "Raw Prime Meat" &&
+    secondIngredient === "Hylian Rice"
+  ) {
+    meals.push("Prime Meat and Rice Bowl");
   }
 };
 
+// HACK: We could possibly iterate over each item in the array with a loop.
+cook(materials[2], materials[4]);
 cook(materials[0], materials[1]);
+cook(materials[3], materials[0]);
 
 console.log("MEALS:");
 console.log("---------------");
